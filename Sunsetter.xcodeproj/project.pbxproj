@@ -11,6 +11,9 @@
 		8436C4032568380600C2FCCD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436C4022568380600C2FCCD /* ContentView.swift */; };
 		8436C4052568380C00C2FCCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8436C4042568380C00C2FCCD /* Assets.xcassets */; };
 		8436C4082568380C00C2FCCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8436C4072568380C00C2FCCD /* Preview Assets.xcassets */; };
+		8436C411256ACC6D00C2FCCD /* geoDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436C410256ACC6D00C2FCCD /* geoDB.swift */; };
+		8436C414256AD3B400C2FCCD /* sunrisesunset.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436C413256AD3B400C2FCCD /* sunrisesunset.swift */; };
+		84FEAA02256BEC2500BDCE57 /* timezoneDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -20,6 +23,9 @@
 		8436C4042568380C00C2FCCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8436C4072568380C00C2FCCD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8436C4092568380C00C2FCCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		8436C410256ACC6D00C2FCCD /* geoDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = geoDB.swift; sourceTree = "<group>"; };
+		8436C413256AD3B400C2FCCD /* sunrisesunset.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = sunrisesunset.swift; sourceTree = "<group>"; };
+		84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timezoneDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -54,6 +60,9 @@
 			children = (
 				8436C4002568380600C2FCCD /* SunsetterApp.swift */,
 				8436C4022568380600C2FCCD /* ContentView.swift */,
+				8436C410256ACC6D00C2FCCD /* geoDB.swift */,
+				84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */,
+				8436C413256AD3B400C2FCCD /* sunrisesunset.swift */,
 				8436C4042568380C00C2FCCD /* Assets.xcassets */,
 				8436C4092568380C00C2FCCD /* Info.plist */,
 				8436C4062568380C00C2FCCD /* Preview Content */,
@@ -139,7 +148,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				8436C4032568380600C2FCCD /* ContentView.swift in Sources */,
+				8436C414256AD3B400C2FCCD /* sunrisesunset.swift in Sources */,
+				84FEAA02256BEC2500BDCE57 /* timezoneDB.swift in Sources */,
 				8436C4012568380600C2FCCD /* SunsetterApp.swift in Sources */,
+				8436C411256ACC6D00C2FCCD /* geoDB.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
