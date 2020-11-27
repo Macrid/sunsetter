@@ -15,7 +15,7 @@ struct CityResponse: Codable {
 }
 
 struct CityData: Codable{
-    //let id:Int
+    let id:Int
     //let wikiDataId:String
     //let type:String
     let city:String

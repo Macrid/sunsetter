@@ -14,10 +14,10 @@ struct ContentView: View {
     @State var longitude:Float?
     
     
-    @State var sunriseUTCTime:Date?
-    @State var sunriselocalTime:Date?
-    @State var sunsetUTCTime:Date?
-    @State var sunsetlocalTime:Date?
+    @State var sunriseUTCTime:String?
+    @State var sunriselocalTime:String?
+    @State var sunsetUTCTime:String?
+    @State var sunsetlocalTime:String?
     
     var body: some View {
         VStack{
@@ -39,6 +39,14 @@ struct ContentView: View {
                 
             }, label: {
                 Text("Bam")
+            })
+            
+            Button(action: {
+                let url = "http://api.timezonedb.com/v2.1/get-time-zone?key=3WMNYAOTEDF5&format=json&by=position&lat=\(latitude!)&lng=\(longitude!)"
+                getLocalTime(from: url)
+                
+            }, label: {
+                Text("Bing")
             })
         }
     } //BODY END
@@ -92,11 +100,8 @@ struct ContentView: View {
                 return
             }
             
-            sunriseUTCTime = json.results.sunrise
-            sunsetUTCTime = json.results.sunset
-            
-            print(json.results.sunrise)
-            print(json.results.sunset)
+            sunriseUTCTime = timeConversion24(time12: json.results.sunrise)
+            sunsetUTCTime = timeConversion24(time12: json.results.sunset)
             
         })
         task.resume()
@@ -121,10 +126,38 @@ struct ContentView: View {
                 return
             }
             
-            sunriselocalTime = sunriseUTCTime +
+            print(json.gmtOffset)
+            sunsetlocalTime = adjustTimeOffset(time: sunsetUTCTime!, offset: Double(json.gmtOffset))
+            sunriselocalTime = adjustTimeOffset(time: sunriseUTCTime!, offset: Double(json.gmtOffset))
+
             
         })
         task.resume()
+    }
+    
+    func timeConversion24(time12: String) -> String {
+        let dateAsString = time12
+        let df = DateFormatter()
+        df.dateFormat = "hh:mm:ssa"
+
+        let date = df.date(from: dateAsString)
+        df.dateFormat = "HH:mm:ss"
+
+        let time24 = df.string(from: date!)
+        print(time24)
+        return time24
+    }
+    
+    func adjustTimeOffset(time: String, offset: Double) -> String
+    {
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm:ss"
+        
+        var localTime = df.date(from: time)
+        localTime! += offset
+        
+        let localTimeString = df.string(from: localTime!)
+        return localTimeString
     }
 }
 
