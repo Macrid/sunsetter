@@ -13,43 +13,57 @@ struct ContentView: View {
     @State var latitude:Float?
     @State var longitude:Float?
     
-    
     @State var sunriseUTCTime:String?
     @State var sunriselocalTime:String?
     @State var sunsetUTCTime:String?
     @State var sunsetlocalTime:String?
     
+    @State var guessedTimeHourOffset:Int?
+    @State var guessedTimeMinuteOffset:Int?
+    @State var currentTime = Date()
+    
     var body: some View {
         VStack{
-            Text("\(stad)")
-                .padding()
-            
             Button(action: {
                 let randomNumber = Int.random(in: 0..<870)
                 let url = "http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=1&offset=\(randomNumber)&minPopulation=1000000&excludedCountryIds=CN"
                 getRandomCity(from: url)
+                guessedTimeHourOffset = 0
+                guessedTimeMinuteOffset = 0
                 
             }, label: {
                 Text("Boom")
+                    .font(.title)
             })
+            Text("\(stad)")
+                .font(.largeTitle)
+                .padding()
+            
+            DatePicker("", selection: $currentTime, displayedComponents: .hourAndMinute)
+                .datePickerStyle(WheelDatePickerStyle())
+                .labelsHidden()
+            
+            Text("Sunset Time: \(sunsetlocalTime ?? "0")")
+                .padding()
+            Text("Sunrise Time: \(sunriselocalTime ?? "0")")
+                .padding()
             
             Button(action: {
-                let url = "https://api.sunrise-sunset.org/json?lat=\(latitude!)&lng=\(longitude!)&date=today"
-                getSunriseSunset(from: url)
+                let df = DateFormatter()
+                df.dateFormat = "HH:mm"
+                var pickedTime = df.string(from: currentTime)
+                
+                (guessedTimeHourOffset, guessedTimeMinuteOffset) = compareTime(guessedTime: pickedTime, actualTime: sunsetlocalTime!)
+                //compareTime(guessedTime: pickedTime, actualTime: sunsetlocalTime!)
                 
             }, label: {
                 Text("Bam")
             })
             
-            Button(action: {
-                let url = "http://api.timezonedb.com/v2.1/get-time-zone?key=3WMNYAOTEDF5&format=json&by=position&lat=\(latitude!)&lng=\(longitude!)"
-                getLocalTime(from: url)
-                
-            }, label: {
-                Text("Bing")
-            })
+            Text("You were \(guessedTimeHourOffset ?? 0) hours and \(guessedTimeMinuteOffset ?? 0) minutes off")
+                .padding()
         }
-    } //BODY END
+    }//BODY END
     
     func getRandomCity(from url: String){
         let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
@@ -71,11 +85,14 @@ struct ContentView: View {
             }
             
             print(json.data[0].city)
-            stad = json.data[0].city
+            stad = json.data[0].city + ", " + json.data[0].country
             latitude = json.data[0].latitude
             longitude = json.data[0].longitude
             print(latitude)
             print(longitude)
+           
+            let sunURL = "https://api.sunrise-sunset.org/json?lat=\(latitude!)&lng=\(longitude!)&date=today"
+            getSunriseSunset(from: sunURL)
             
         })
         task.resume()
@@ -103,6 +120,8 @@ struct ContentView: View {
             sunriseUTCTime = timeConversion24(time12: json.results.sunrise)
             sunsetUTCTime = timeConversion24(time12: json.results.sunset)
             
+            let timeURL = "http://api.timezonedb.com/v2.1/get-time-zone?key=3WMNYAOTEDF5&format=json&by=position&lat=\(latitude!)&lng=\(longitude!)"
+            getLocalTime(from: timeURL)
         })
         task.resume()
     }
@@ -113,7 +132,7 @@ struct ContentView: View {
                 print("something went wrong")
                 return
             }
-            //have data
+            
             var result: timezoneResponse?
             do {
                 result = try JSONDecoder().decode((timezoneResponse.self), from: data)
@@ -154,10 +173,50 @@ struct ContentView: View {
         df.dateFormat = "HH:mm:ss"
         
         var localTime = df.date(from: time)
+        df.dateFormat = "HH:mm"
         localTime! += offset
         
         let localTimeString = df.string(from: localTime!)
         return localTimeString
+    }
+    
+    func compareTime(guessedTime: String, actualTime: String) -> (sunriseDiff: Int, sunsetDiff: Int)
+    {
+        let calendar = Calendar.current
+        
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm"
+        
+       // guessedTimeDate = df.date(from: guessedTime)
+        
+        let guessedTimeDate = df.date(from: guessedTime)!
+        let actualTimeDate = df.date(from: actualTime)!
+        
+        let guessedTimeDateComponents = calendar.dateComponents([.hour, .minute], from: guessedTimeDate)
+        let actualTimeDateComponents = calendar.dateComponents([.hour, .minute], from: actualTimeDate)
+        
+        var hoursOff = actualTimeDateComponents.hour! - guessedTimeDateComponents.hour!
+        
+        var minutesOff = actualTimeDateComponents.minute! - guessedTimeDateComponents.minute!
+        
+        if(hoursOff < 0)
+        {
+            hoursOff = hoursOff * -1
+        }
+        if(hoursOff > 12)
+        {
+            hoursOff = 12 - (hoursOff-12)
+        }
+        
+        if(minutesOff < 0)
+        {
+            hoursOff -= 1
+            minutesOff = 60 - (minutesOff * -1)
+        }
+        
+        print(hoursOff)
+        print(minutesOff)
+        return (hoursOff, minutesOff)
     }
 }
 
