@@ -9,7 +9,7 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State var stad = "bla"
+    @State var stad = ""
     @State var latitude:Float?
     @State var longitude:Float?
     
@@ -22,29 +22,49 @@ struct ContentView: View {
     @State var guessedTimeMinuteOffset:Int?
     @State var currentTime = Date()
     
+    @State var isSunrise = Bool.random()
+    @State var guessInProgress = false
+    
     var body: some View {
         VStack{
             Button(action: {
-                let randomNumber = Int.random(in: 0..<870)
-                let url = "http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=1&offset=\(randomNumber)&minPopulation=1000000&excludedCountryIds=CN"
-                getRandomCity(from: url)
+                getRandomCity()
                 guessedTimeHourOffset = 0
                 guessedTimeMinuteOffset = 0
+                isSunrise = Bool.random()
+                guessInProgress.toggle()
                 
             }, label: {
                 Text("Boom")
                     .font(.title)
             })
+            .isHidden(guessInProgress, remove: guessInProgress)
+            
+
+            if(isSunrise)
+            {
+                Text("When does the sun rise in:")
+                    .isHidden(!guessInProgress, remove: !guessInProgress)
+            } else{
+                Text("When does the sun set in:")
+                    .isHidden(!guessInProgress, remove: !guessInProgress)
+            }
+            
+
+            
             Text("\(stad)")
                 .font(.largeTitle)
                 .padding()
+                
             
             DatePicker("", selection: $currentTime, displayedComponents: .hourAndMinute)
                 .datePickerStyle(WheelDatePickerStyle())
                 .labelsHidden()
+                .isHidden(!guessInProgress, remove: !guessInProgress)
             
             Text("Sunset Time: \(sunsetlocalTime ?? "0")")
                 .padding()
+                .isHidden(guessInProgress, remove: guessInProgress)
             Text("Sunrise Time: \(sunriselocalTime ?? "0")")
                 .padding()
             
@@ -54,18 +74,22 @@ struct ContentView: View {
                 var pickedTime = df.string(from: currentTime)
                 
                 (guessedTimeHourOffset, guessedTimeMinuteOffset) = compareTime(guessedTime: pickedTime, actualTime: sunsetlocalTime!)
-                //compareTime(guessedTime: pickedTime, actualTime: sunsetlocalTime!)
+                guessInProgress.toggle()
                 
             }, label: {
                 Text("Bam")
             })
+            .isHidden(!guessInProgress, remove: !guessInProgress)
             
             Text("You were \(guessedTimeHourOffset ?? 0) hours and \(guessedTimeMinuteOffset ?? 0) minutes off")
                 .padding()
+                .isHidden(guessInProgress, remove: guessInProgress)
         }
     }//BODY END
     
-    func getRandomCity(from url: String){
+    func getRandomCity(){
+        let randomNumber = Int.random(in: 0..<870)
+        let url = "http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=1&offset=\(randomNumber)&minPopulation=1000000&excludedCountryIds=CN"
         let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
             guard let data = data, error == nil else {
                 print("something went wrong")
@@ -217,6 +241,38 @@ struct ContentView: View {
         print(hoursOff)
         print(minutesOff)
         return (hoursOff, minutesOff)
+    }
+    
+    
+}
+
+extension View {
+    
+    /// Hide or show the view based on a boolean value.
+    ///
+    /// Example for visibility:
+    /// ```
+    /// Text("Label")
+    ///     .isHidden(true)
+    /// ```
+    ///
+    /// Example for complete removal:
+    /// ```
+    /// Text("Label")
+    ///     .isHidden(true, remove: true)
+    /// ```
+    ///
+    /// - Parameters:
+    ///   - hidden: Set to `false` to show the view. Set to `true` to hide the view.
+    ///   - remove: Boolean value indicating whether or not to remove the view.
+    @ViewBuilder func isHidden(_ hidden: Bool, remove: Bool = false) -> some View {
+        if hidden {
+            if !remove {
+                self.hidden()
+            }
+        } else {
+            self
+        }
     }
 }
 
