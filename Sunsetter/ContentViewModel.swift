@@ -33,13 +33,19 @@ class ContentViewModel: ObservableObject {
     
     static let shared = ContentViewModel()
     
-    func compareTimes(guessedTime: Date){
+    func getResult(guessedTime: Date){
         let df = DateFormatter()
         df.dateFormat = "HH:mm"
         
-        var guessedTimeString = df.string(from: guessedTime)
+        let guessedTimeString = df.string(from: guessedTime)
         
-        (guessedTimeHourOffset, guessedTimeMinuteOffset) = compareTime(guessedTime: guessedTimeString, actualTime: self.currentCity!.sunset)
+        if(isSunrise)
+        {
+            (guessedTimeHourOffset, guessedTimeMinuteOffset) = compareTime(guessedTime: guessedTimeString, actualTime: self.currentCity!.sunrise)
+        } else{
+            (guessedTimeHourOffset, guessedTimeMinuteOffset) = compareTime(guessedTime: guessedTimeString, actualTime: self.currentCity!.sunset)
+        }
+        
     }
     
     func getRandomCity(){
@@ -171,11 +177,61 @@ class ContentViewModel: ObservableObject {
         let df = DateFormatter()
         df.dateFormat = "HH:mm"
         
-        // guessedTimeDate = df.date(from: guessedTime)
         
         let guessedTimeDate = df.date(from: guessedTime)!
         let actualTimeDate = df.date(from: actualTime)!
         
+        let diffComponents = Calendar.current.dateComponents([.hour, .minute], from: actualTimeDate, to: guessedTimeDate)
+        
+        let diffComponentsReverse = Calendar.current.dateComponents([.hour, .minute], from: guessedTimeDate, to: actualTimeDate)
+        
+        var hoursOff = min(diffComponents.hour!, diffComponentsReverse.hour!)
+        var minutesOff = diffComponents.minute!
+        
+        
+        //WORKS FOR SUNSET
+        if(hoursOff < 0)
+        {
+            hoursOff = hoursOff * -1
+            if(hoursOff >= 12)
+            {
+                let rest = hoursOff % 12
+                hoursOff = 12 - rest
+                
+                if(minutesOff < 0)
+                {
+                    hoursOff -= 1
+                    minutesOff = 60 + minutesOff
+                }
+            }
+            
+        }
+        
+        if(minutesOff < 0)
+        {
+            minutesOff = minutesOff * -1
+        }
+        /*
+        if(minutesOff < 0)
+        {
+            minutesOff = 60 - minutesOff
+            hoursOff -= 1
+
+        }
+        
+        if(hoursOff >= 12)
+        {
+            hoursOff = 24 - hoursOff
+           /* if(minutesOff >= 30)
+            {
+                minutesOff = 60 - minutesOff
+                hoursOff -= 1
+            }*/
+            
+        }
+        */
+        
+        /*
         let guessedTimeDateComponents = calendar.dateComponents([.hour, .minute], from: guessedTimeDate)
         let actualTimeDateComponents = calendar.dateComponents([.hour, .minute], from: actualTimeDate)
         
@@ -194,10 +250,15 @@ class ContentViewModel: ObservableObject {
         
         if(minutesOff < 0)
         {
-            hoursOff -= 1
-            minutesOff = 60 - (minutesOff * -1)
+            if(hoursOff > 0)
+            {
+                hoursOff -= 1
+                minutesOff = minutesOff * -1
+            }else{
+                minutesOff = 60 - (minutesOff * -1)
+            }
         }
-        
+        */
         return (hoursOff, minutesOff)
     }
     
