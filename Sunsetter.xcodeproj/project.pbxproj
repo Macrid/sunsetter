@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		8436C4012568380600C2FCCD /* SunsetterApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436C4002568380600C2FCCD /* SunsetterApp.swift */; };
-		8436C4032568380600C2FCCD /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436C4022568380600C2FCCD /* ContentView.swift */; };
+		8436C4032568380600C2FCCD /* ContentViewOld.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436C4022568380600C2FCCD /* ContentViewOld.swift */; };
 		8436C4052568380C00C2FCCD /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8436C4042568380C00C2FCCD /* Assets.xcassets */; };
 		8436C4082568380C00C2FCCD /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 8436C4072568380C00C2FCCD /* Preview Assets.xcassets */; };
 		8436C411256ACC6D00C2FCCD /* geoDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8436C410256ACC6D00C2FCCD /* geoDB.swift */; };
@@ -16,13 +16,16 @@
 		843E12F8257D05DE00702526 /* GuessInProggresView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E12F7257D05DE00702526 /* GuessInProggresView.swift */; };
 		843E12FE257D457F00702526 /* City.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E12FD257D457F00702526 /* City.swift */; };
 		843E1301257D4A5C00702526 /* ContentViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 843E1300257D4A5C00702526 /* ContentViewModel.swift */; };
+		84741557257E2D6E00863B0A /* ContentViewNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84741556257E2D6E00863B0A /* ContentViewNew.swift */; };
+		8474155B257E32FC00863B0A /* BeforeStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474155A257E32FC00863B0A /* BeforeStartView.swift */; };
+		8474155F257E331000863B0A /* AfterGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474155E257E331000863B0A /* AfterGameView.swift */; };
 		84FEAA02256BEC2500BDCE57 /* timezoneDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		8436C3FD2568380600C2FCCD /* Sunsetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunsetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8436C4002568380600C2FCCD /* SunsetterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsetterApp.swift; sourceTree = "<group>"; };
-		8436C4022568380600C2FCCD /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		8436C4022568380600C2FCCD /* ContentViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewOld.swift; sourceTree = "<group>"; };
 		8436C4042568380C00C2FCCD /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		8436C4072568380C00C2FCCD /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		8436C4092568380C00C2FCCD /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -31,6 +34,9 @@
 		843E12F7257D05DE00702526 /* GuessInProggresView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GuessInProggresView.swift; sourceTree = "<group>"; };
 		843E12FD257D457F00702526 /* City.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = City.swift; sourceTree = "<group>"; };
 		843E1300257D4A5C00702526 /* ContentViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewModel.swift; sourceTree = "<group>"; };
+		84741556257E2D6E00863B0A /* ContentViewNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewNew.swift; sourceTree = "<group>"; };
+		8474155A257E32FC00863B0A /* BeforeStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeStartView.swift; sourceTree = "<group>"; };
+		8474155E257E331000863B0A /* AfterGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterGameView.swift; sourceTree = "<group>"; };
 		84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timezoneDB.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -64,12 +70,11 @@
 		8436C3FF2568380600C2FCCD /* Sunsetter */ = {
 			isa = PBXGroup;
 			children = (
+				84741561257E331D00863B0A /* Views */,
 				843E12FA257D05E800702526 /* APIs */,
 				8436C4002568380600C2FCCD /* SunsetterApp.swift */,
-				8436C4022568380600C2FCCD /* ContentView.swift */,
 				843E1300257D4A5C00702526 /* ContentViewModel.swift */,
 				843E12FD257D457F00702526 /* City.swift */,
-				843E12F7257D05DE00702526 /* GuessInProggresView.swift */,
 				8436C4042568380C00C2FCCD /* Assets.xcassets */,
 				8436C4092568380C00C2FCCD /* Info.plist */,
 				8436C4062568380C00C2FCCD /* Preview Content */,
@@ -93,6 +98,18 @@
 				84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */,
 			);
 			path = APIs;
+			sourceTree = "<group>";
+		};
+		84741561257E331D00863B0A /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				8436C4022568380600C2FCCD /* ContentViewOld.swift */,
+				84741556257E2D6E00863B0A /* ContentViewNew.swift */,
+				8474155A257E32FC00863B0A /* BeforeStartView.swift */,
+				843E12F7257D05DE00702526 /* GuessInProggresView.swift */,
+				8474155E257E331000863B0A /* AfterGameView.swift */,
+			);
+			path = Views;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -165,13 +182,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				843E12F8257D05DE00702526 /* GuessInProggresView.swift in Sources */,
-				8436C4032568380600C2FCCD /* ContentView.swift in Sources */,
+				8436C4032568380600C2FCCD /* ContentViewOld.swift in Sources */,
 				8436C414256AD3B400C2FCCD /* sunrisesunset.swift in Sources */,
 				84FEAA02256BEC2500BDCE57 /* timezoneDB.swift in Sources */,
+				8474155B257E32FC00863B0A /* BeforeStartView.swift in Sources */,
 				8436C4012568380600C2FCCD /* SunsetterApp.swift in Sources */,
 				843E12FE257D457F00702526 /* City.swift in Sources */,
+				84741557257E2D6E00863B0A /* ContentViewNew.swift in Sources */,
 				843E1301257D4A5C00702526 /* ContentViewModel.swift in Sources */,
 				8436C411256ACC6D00C2FCCD /* geoDB.swift in Sources */,
+				8474155F257E331000863B0A /* AfterGameView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

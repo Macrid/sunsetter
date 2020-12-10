@@ -29,10 +29,18 @@ class ContentViewModel: ObservableObject {
     
     @Published var currentCity:City?
     
-    func replaceCurrentCity(){
-        currentCity = City(name: cityName, country: cityCountry, latitude: latitude!, longitude: longitude!, sunrise: sunriselocalTime!, sunset: sunsetlocalTime!, gmtOffset: gmtOffset!)
-    }
+    private init() {}
     
+    static let shared = ContentViewModel()
+    
+    func compareTimes(guessedTime: Date){
+        let df = DateFormatter()
+        df.dateFormat = "HH:mm"
+        
+        var guessedTimeString = df.string(from: guessedTime)
+        
+        (guessedTimeHourOffset, guessedTimeMinuteOffset) = compareTime(guessedTime: guessedTimeString, actualTime: self.currentCity!.sunset)
+    }
     
     func getRandomCity(){
         let randomNumber = Int.random(in: 0..<870)
@@ -55,7 +63,8 @@ class ContentViewModel: ObservableObject {
                 return
             }
             
-            self.cityName = json.data[0].city + ", " + json.data[0].country
+            self.cityName = json.data[0].city
+            self.cityCountry = json.data[0].country
             self.latitude = json.data[0].latitude
             self.longitude = json.data[0].longitude
             
@@ -117,9 +126,16 @@ class ContentViewModel: ObservableObject {
             self.sunsetlocalTime = self.adjustTimeOffset(time: self.sunsetUTCTime!, offset: Double(json.gmtOffset))
             self.sunriselocalTime = self.adjustTimeOffset(time: self.sunriseUTCTime!, offset: Double(json.gmtOffset))
             
-            self.replaceCurrentCity()
+            DispatchQueue.main.async {
+                self.replaceCurrentCity()
+            }
+            
         })
         task.resume()
+    }
+    
+    func replaceCurrentCity(){
+        currentCity = City(name: cityName, country: cityCountry, latitude: latitude!, longitude: longitude!, sunrise: sunriselocalTime!, sunset: sunsetlocalTime!, gmtOffset: gmtOffset!)
     }
     
     func timeConversion24(time12: String) -> String {
@@ -148,7 +164,7 @@ class ContentViewModel: ObservableObject {
         return localTimeString
     }
     
-    func compareTime(guessedTime: String, actualTime: String) -> (sunriseDiff: Int, sunsetDiff: Int)
+    func compareTime(guessedTime: String, actualTime: String) -> (hoursDiff: Int, minutesDiff: Int)
     {
         let calendar = Calendar.current
         

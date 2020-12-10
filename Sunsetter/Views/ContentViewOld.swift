@@ -6,8 +6,8 @@
 //
 
 import SwiftUI
-
-struct ContentView: View {
+/*
+struct ContentViewOld: View {
     
     @State var stad = ""
     @State var latitude:Float?
@@ -18,8 +18,8 @@ struct ContentView: View {
     @State var sunsetUTCTime:String?
     @State var sunsetlocalTime:String?
     
-    @State var guessedTimeHourOffset:Int?
-    @State var guessedTimeMinuteOffset:Int?
+   // @State var guessedTimeHourOffset:Int?
+   // @State var guessedTimeMinuteOffset:Int?
     @State var currentTime = Date()
     
     @State var isSunrise = Bool.random()
@@ -278,6 +278,6 @@ extension View {
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        ContentViewOld()
     }
-}
+ }*/
