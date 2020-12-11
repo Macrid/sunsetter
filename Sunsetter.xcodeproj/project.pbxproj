@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -19,10 +19,13 @@
 		84741557257E2D6E00863B0A /* ContentViewNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84741556257E2D6E00863B0A /* ContentViewNew.swift */; };
 		8474155B257E32FC00863B0A /* BeforeStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474155A257E32FC00863B0A /* BeforeStartView.swift */; };
 		8474155F257E331000863B0A /* AfterGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474155E257E331000863B0A /* AfterGameView.swift */; };
+		84EB8E892583BD33001EE0D0 /* Adview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB8E882583BD33001EE0D0 /* Adview.swift */; };
 		84FEAA02256BEC2500BDCE57 /* timezoneDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */; };
+		BCB6643CC954D44B777D7639 /* Pods_Sunsetter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9569CB85A69E4B0EE93115B7 /* Pods_Sunsetter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		6DB9C953938C1126706FC82F /* Pods-Sunsetter.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunsetter.debug.xcconfig"; path = "Target Support Files/Pods-Sunsetter/Pods-Sunsetter.debug.xcconfig"; sourceTree = "<group>"; };
 		8436C3FD2568380600C2FCCD /* Sunsetter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Sunsetter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		8436C4002568380600C2FCCD /* SunsetterApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SunsetterApp.swift; sourceTree = "<group>"; };
 		8436C4022568380600C2FCCD /* ContentViewOld.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewOld.swift; sourceTree = "<group>"; };
@@ -37,7 +40,10 @@
 		84741556257E2D6E00863B0A /* ContentViewNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewNew.swift; sourceTree = "<group>"; };
 		8474155A257E32FC00863B0A /* BeforeStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeStartView.swift; sourceTree = "<group>"; };
 		8474155E257E331000863B0A /* AfterGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterGameView.swift; sourceTree = "<group>"; };
+		84EB8E882583BD33001EE0D0 /* Adview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adview.swift; sourceTree = "<group>"; };
 		84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timezoneDB.swift; sourceTree = "<group>"; };
+		9569CB85A69E4B0EE93115B7 /* Pods_Sunsetter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunsetter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		D0D2C4FE5DE65ECE70EE4C8B /* Pods-Sunsetter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunsetter.release.xcconfig"; path = "Target Support Files/Pods-Sunsetter/Pods-Sunsetter.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -45,17 +51,37 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				BCB6643CC954D44B777D7639 /* Pods_Sunsetter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		0C6AB11CA332583983A2975E /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				6DB9C953938C1126706FC82F /* Pods-Sunsetter.debug.xcconfig */,
+				D0D2C4FE5DE65ECE70EE4C8B /* Pods-Sunsetter.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		110A2C0E01F7079E1F895871 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				9569CB85A69E4B0EE93115B7 /* Pods_Sunsetter.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		8436C3F42568380600C2FCCD = {
 			isa = PBXGroup;
 			children = (
 				8436C3FF2568380600C2FCCD /* Sunsetter */,
 				8436C3FE2568380600C2FCCD /* Products */,
+				0C6AB11CA332583983A2975E /* Pods */,
+				110A2C0E01F7079E1F895871 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -75,6 +101,7 @@
 				8436C4002568380600C2FCCD /* SunsetterApp.swift */,
 				843E1300257D4A5C00702526 /* ContentViewModel.swift */,
 				843E12FD257D457F00702526 /* City.swift */,
+				84EB8E882583BD33001EE0D0 /* Adview.swift */,
 				8436C4042568380C00C2FCCD /* Assets.xcassets */,
 				8436C4092568380C00C2FCCD /* Info.plist */,
 				8436C4062568380C00C2FCCD /* Preview Content */,
@@ -119,9 +146,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 8436C40C2568380C00C2FCCD /* Build configuration list for PBXNativeTarget "Sunsetter" */;
 			buildPhases = (
+				BE1C0C3BFA5DFF7768E22F35 /* [CP] Check Pods Manifest.lock */,
+				C58C260A1A8830A6710BBBC0 /* [CP] Prepare Artifacts */,
 				8436C3F92568380600C2FCCD /* Sources */,
 				8436C3FA2568380600C2FCCD /* Frameworks */,
 				8436C3FB2568380600C2FCCD /* Resources */,
+				77549C65C4B63711218C9D39 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -176,6 +206,65 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		77549C65C4B63711218C9D39 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		BE1C0C3BFA5DFF7768E22F35 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-Sunsetter-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C58C260A1A8830A6710BBBC0 /* [CP] Prepare Artifacts */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-artifacts-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Prepare Artifacts";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-artifacts-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-artifacts.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		8436C3F92568380600C2FCCD /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -192,6 +281,7 @@
 				843E1301257D4A5C00702526 /* ContentViewModel.swift in Sources */,
 				8436C411256ACC6D00C2FCCD /* geoDB.swift in Sources */,
 				8474155F257E331000863B0A /* AfterGameView.swift in Sources */,
+				84EB8E892583BD33001EE0D0 /* Adview.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -316,6 +406,7 @@
 		};
 		8436C40D2568380C00C2FCCD /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 6DB9C953938C1126706FC82F /* Pods-Sunsetter.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -338,6 +429,7 @@
 		};
 		8436C40E2568380C00C2FCCD /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = D0D2C4FE5DE65ECE70EE4C8B /* Pods-Sunsetter.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;

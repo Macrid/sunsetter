@@ -20,6 +20,9 @@ struct GuessInProgressView: View {
         ZStack{
             VStack
             {
+                Adview()
+                    .frame(width: UIScreen.main.bounds.width, height: 60)
+                Spacer()
                 if(vm.isSunrise)
                 {
                     Text("When does the sun rise in:")
@@ -48,6 +51,7 @@ struct GuessInProgressView: View {
                 }, label: {
                     Text("Bam")
                 })
+                Spacer()
             }.animation(.easeIn(duration: 1))
             AfterGameView(isShown: $isGameEnded)
         }
