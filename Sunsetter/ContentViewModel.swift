@@ -189,27 +189,53 @@ class ContentViewModel: ObservableObject {
         var minutesOff = diffComponents.minute!
         
         
-        //WORKS FOR SUNSET
-        if(hoursOff < 0)
+        //WORKS FOR SUNSET AND SUNSET HOPEFULLY
+        if(isSunrise == false)
         {
-            hoursOff = hoursOff * -1
-            if(hoursOff >= 12)
+            if(hoursOff < 0)
             {
-                let rest = hoursOff % 12
-                hoursOff = 12 - rest
-                
-                if(minutesOff < 0)
+                hoursOff = hoursOff * -1
+                if(hoursOff >= 12)
                 {
-                    hoursOff -= 1
-                    minutesOff = 60 + minutesOff
+                    let rest = hoursOff % 12
+                    hoursOff = 12 - rest
+                    
+                    if(minutesOff < 0)
+                    {
+                        hoursOff -= 1
+                        minutesOff = 60 + minutesOff
+                    }
                 }
+                
             }
             
-        }
-        
-        if(minutesOff < 0)
-        {
-            minutesOff = minutesOff * -1
+            if(minutesOff < 0)
+            {
+                minutesOff = minutesOff * -1
+            }
+        } else {
+            
+            if(hoursOff < 0)
+            {
+                hoursOff = hoursOff * -1
+                if(hoursOff >= 12)
+                {
+                    let rest = hoursOff % 12
+                    hoursOff = 12 - rest
+                    
+                    if(minutesOff > 0)
+                    {
+                        hoursOff -= 1
+                        minutesOff = 60 - minutesOff
+                    }
+                }
+                
+            }
+            
+            if(minutesOff < 0)
+            {
+                minutesOff = minutesOff * -1
+            }
         }
         /*
         if(minutesOff < 0)
