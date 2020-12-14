@@ -12,10 +12,6 @@ struct GuessInProgressView: View {
     @ObservedObject var vm: ContentViewModel = .shared
     @State var isGameEnded = false
     
-    init() {
-        UINavigationBar.setAnimationsEnabled(false)
-    }
-    
     var body: some View {
         ZStack{
             VStack
@@ -37,7 +33,6 @@ struct GuessInProgressView: View {
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
                         .padding()
-                       //.animation(.easeIn(duration: 1))
                 }
                 
                 
@@ -45,21 +40,23 @@ struct GuessInProgressView: View {
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
                 
-                Button(action: {
-                    vm.getResult(guessedTime: currentTime)
-                    isGameEnded = true
-                }, label: {
-                    Text("Bam")
-                })
+                if (vm.currentCity != nil)
+                {
+                    Button(action: {
+                        vm.getResult(guessedTime: currentTime)
+                        isGameEnded = true
+                    }, label: {
+                        Text("Bam")
+                    })
+                }
                 Spacer()
-            }.animation(.easeIn(duration: 1))
-            AfterGameView(isShown: $isGameEnded)
-        }
-        .navigationBarTitle("")
-        .navigationBarHidden(true)
-        .navigationBarBackButtonHidden(true)
+            }
+        }.animation(.easeInOut)
+        AfterGameView(isShown: $isGameEnded, onPlayagain: vm.getRandomCity)
     }
+    
 }
+
 
 struct guessInProggresView_Previews: PreviewProvider {
     static var previews: some View {

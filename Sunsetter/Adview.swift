@@ -21,6 +21,6 @@ struct Adview : UIViewRepresentable {
     }
     
     func updateUIView(_ uiView: GADBannerView, context: UIViewRepresentableContext<Adview>) {
-        
+            
     }
 }

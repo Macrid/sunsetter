@@ -20,6 +20,7 @@
 		8474155B257E32FC00863B0A /* BeforeStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474155A257E32FC00863B0A /* BeforeStartView.swift */; };
 		8474155F257E331000863B0A /* AfterGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474155E257E331000863B0A /* AfterGameView.swift */; };
 		84EB8E892583BD33001EE0D0 /* Adview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB8E882583BD33001EE0D0 /* Adview.swift */; };
+		84EB8E8D25878B48001EE0D0 /* HalfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB8E8C25878B48001EE0D0 /* HalfCircleView.swift */; };
 		84FEAA02256BEC2500BDCE57 /* timezoneDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */; };
 		BCB6643CC954D44B777D7639 /* Pods_Sunsetter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9569CB85A69E4B0EE93115B7 /* Pods_Sunsetter.framework */; };
 /* End PBXBuildFile section */
@@ -41,6 +42,7 @@
 		8474155A257E32FC00863B0A /* BeforeStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeStartView.swift; sourceTree = "<group>"; };
 		8474155E257E331000863B0A /* AfterGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterGameView.swift; sourceTree = "<group>"; };
 		84EB8E882583BD33001EE0D0 /* Adview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adview.swift; sourceTree = "<group>"; };
+		84EB8E8C25878B48001EE0D0 /* HalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircleView.swift; sourceTree = "<group>"; };
 		84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timezoneDB.swift; sourceTree = "<group>"; };
 		9569CB85A69E4B0EE93115B7 /* Pods_Sunsetter.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_Sunsetter.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		D0D2C4FE5DE65ECE70EE4C8B /* Pods-Sunsetter.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Sunsetter.release.xcconfig"; path = "Target Support Files/Pods-Sunsetter/Pods-Sunsetter.release.xcconfig"; sourceTree = "<group>"; };
@@ -131,6 +133,7 @@
 			isa = PBXGroup;
 			children = (
 				8436C4022568380600C2FCCD /* ContentViewOld.swift */,
+				84EB8E8C25878B48001EE0D0 /* HalfCircleView.swift */,
 				84741556257E2D6E00863B0A /* ContentViewNew.swift */,
 				8474155A257E32FC00863B0A /* BeforeStartView.swift */,
 				843E12F7257D05DE00702526 /* GuessInProggresView.swift */,
@@ -274,6 +277,7 @@
 				8436C4032568380600C2FCCD /* ContentViewOld.swift in Sources */,
 				8436C414256AD3B400C2FCCD /* sunrisesunset.swift in Sources */,
 				84FEAA02256BEC2500BDCE57 /* timezoneDB.swift in Sources */,
+				84EB8E8D25878B48001EE0D0 /* HalfCircleView.swift in Sources */,
 				8474155B257E32FC00863B0A /* BeforeStartView.swift in Sources */,
 				8436C4012568380600C2FCCD /* SunsetterApp.swift in Sources */,
 				843E12FE257D457F00702526 /* City.swift in Sources */,

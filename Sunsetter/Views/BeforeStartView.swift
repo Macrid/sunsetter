@@ -10,25 +10,32 @@ import SwiftUI
 struct BeforeStartView: View {
     @ObservedObject var vm: ContentViewModel = .shared
     @State var isShowingGuessInProgressView = false
-    
-    init() {
-        UINavigationBar.setAnimationsEnabled(false)
-    }
+    @State var appeared: Double = 0
     
     var body: some View {
-        NavigationView{
-            VStack{
-                NavigationLink(
-                    destination: GuessInProgressView(),
-                    isActive: $isShowingGuessInProgressView) { EmptyView() }
-                    .navigationBarTitle("")
-                    .navigationBarHidden(true)
+        VStack{
+            if (isShowingGuessInProgressView)
+            {
+                VStack{
+                    GuessInProgressView()
+                }
+                .opacity(appeared)
+                .animation(.easeInOut(duration: 2), value: appeared)
+                .onAppear {self.appeared = 1.0}
+                .onDisappear {self.appeared = 0.0}
+            }
+            /* NavigationLink(
+             destination: GuessInProgressView(),
+             isActive: $isShowingGuessInProgressView) { EmptyView() }
+             .navigationBarTitle("")
+             .navigationBarHidden(true)*/
+            else{
                 Button("Start") {
-                    vm.getRandomCity()
                     self.isShowingGuessInProgressView = true
+                    vm.getRandomCity()
                 }
             }
-        }.transition(.opacity)
+        }
     }
 }
 
