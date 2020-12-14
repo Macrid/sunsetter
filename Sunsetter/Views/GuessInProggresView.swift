@@ -50,9 +50,9 @@ struct GuessInProgressView: View {
                     })
                 }
                 Spacer()
-            }
-        }.animation(.easeInOut)
-        AfterGameView(isShown: $isGameEnded, onPlayagain: vm.getRandomCity)
+            }.animation(.easeInOut).background(HalfCircleView())
+            AfterGameView(isShown: $isGameEnded, onPlayagain: vm.getRandomCity)
+        }
     }
     
 }
