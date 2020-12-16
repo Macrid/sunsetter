@@ -28,6 +28,8 @@ class ContentViewModel: ObservableObject {
     
     var isSunrise = Bool.random()
     
+    @Published var loadInProgress = true
+    
     @Published var currentCity:City?
     
     private init() {}
@@ -50,6 +52,7 @@ class ContentViewModel: ObservableObject {
     }
     
     func getRandomCity(){
+        loadInProgress = true
         let randomNumber = Int.random(in: 0..<870)
         let url = "http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=1&offset=\(randomNumber)&minPopulation=1000000&excludedCountryIds=CN"
         let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
@@ -143,6 +146,7 @@ class ContentViewModel: ObservableObject {
     
     func replaceCurrentCity(){
         currentCity = City(name: cityName, country: cityCountry, latitude: latitude!, longitude: longitude!, sunrise: sunriselocalTime!, sunset: sunsetlocalTime!, gmtOffset: gmtOffset!)
+        self.loadInProgress = false
     }
     
     func timeConversion24(time12: String) -> String {

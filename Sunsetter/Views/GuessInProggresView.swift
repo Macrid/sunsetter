@@ -18,16 +18,16 @@ struct GuessInProgressView: View {
             {
                 Adview()
                     .frame(width: UIScreen.main.bounds.width, height: 60)
-                Spacer()
+                
                 if(vm.isSunrise)
                 {
-                    Text("When does the sun rise in:")
+                    Text("When does the sun rise in:").padding(.top)
                 } else{
-                    Text("When does the sun set in:")
+                    Text("When does the sun set in:").padding(.top)
                 }
                 
                 
-                if (vm.currentCity != nil)
+                if (vm.loadInProgress == false)
                 {
                     Text((vm.currentCity?.name ?? "") + ", " + (vm.currentCity?.country ?? ""))
                         .font(.largeTitle)
@@ -40,17 +40,17 @@ struct GuessInProgressView: View {
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
                 
-                if (vm.currentCity != nil)
+                if (vm.loadInProgress == false)
                 {
                     Button(action: {
                         vm.getResult(guessedTime: currentTime)
                         isGameEnded = true
                     }, label: {
                         Text("Bam")
-                    })
+                    }).padding(.top, 20.0)
                 }
                 Spacer()
-            }.animation(.easeInOut).background(HalfCircleView())
+            }.background(HalfCircleView())
             AfterGameView(isShown: $isGameEnded, onPlayagain: vm.getRandomCity)
         }
     }

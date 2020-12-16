@@ -40,26 +40,22 @@ struct AfterGameView: View {
                 Text(vm.currentCity?.country ?? "")
                     .font(.title)
                     .multilineTextAlignment(.center)
-                Text("the sun rises at:")
+                Text("the sun sets at:")
                 Text(vm.currentCity?.sunset ?? "")
                     .font(.largeTitle)
                     .multilineTextAlignment(.center)
                     .padding()
                 //Text("The sun sets at \(vm.currentCity?.sunset ?? "") in:")
             }
-            /*
-            if (vm.currentCity != nil)
+            if(vm.guessedTimeHourOffset == 0 && vm.guessedTimeMinuteOffset == 0)
             {
-                Text((vm.currentCity?.name ?? "") + ", " + (vm.currentCity?.country ?? ""))
-                    .font(.title)
+                Text("Wow, you got it exactly right!")
                     .multilineTextAlignment(.center)
-                    .padding()
-            }*/
-            
-            Text("Your guess was \(vm.guessedTimeHourOffset ?? 0) hours and \(vm.guessedTimeMinuteOffset ?? 0) minutes off")
-                .multilineTextAlignment(.center)
-           
-           
+            }
+            else{
+                Text("Your guess was \(vm.guessedTimeHourOffset ?? 0) hours and \(vm.guessedTimeMinuteOffset ?? 0) minutes off")
+                    .multilineTextAlignment(.center)
+            }
                 Button("Play Again") {
                     self.isShown = false
                     self.onPlayagain()

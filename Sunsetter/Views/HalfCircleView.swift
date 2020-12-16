@@ -20,14 +20,14 @@ struct HalfCircleView: View {
                 .fill(LinearGradient(
                     gradient: .init(colors: [Self.gradientStart,
                                              Self.gradientEnd]),
-                    startPoint: .init(x: 0.5, y: 0.35),
-                    endPoint: .init(x: 0.5, y: 0.6)
+                    startPoint: .init(x: 0.5, y: 0.28),
+                    endPoint: .init(x: 0.5, y: 0.55)
                 ))
-                .frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.width)
+                .frame(width: UIScreen.main.bounds.width * 0.65, height: UIScreen.main.bounds.width)
                 .position(CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height))
                 
                 
-        }
+        }.background(LinearGradient(gradient: Gradient(colors: [.white, Color.init(hex: 0xFB8B24)]), startPoint: .top, endPoint: .bottom))
         
     }
     
