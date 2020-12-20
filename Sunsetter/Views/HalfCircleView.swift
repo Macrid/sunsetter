@@ -27,7 +27,7 @@ struct HalfCircleView: View {
                 .position(CGPoint(x: UIScreen.main.bounds.width/2, y: UIScreen.main.bounds.height))
                 
                 
-        }.background(LinearGradient(gradient: Gradient(colors: [.white, Color.init(hex: 0xFB8B24)]), startPoint: .top, endPoint: .bottom))
+        }.background(LinearGradient(gradient: Gradient(colors: [.white, Color.init(hex: 0xFB8B24)]), startPoint: .top, endPoint: .bottom)).ignoresSafeArea()
         
     }
     

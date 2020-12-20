@@ -56,15 +56,25 @@ struct AfterGameView: View {
                 Text("Your guess was \(vm.guessedTimeHourOffset ?? 0) hours and \(vm.guessedTimeMinuteOffset ?? 0) minutes off")
                     .multilineTextAlignment(.center)
             }
-                Button("Play Again") {
-                    self.isShown = false
-                    self.onPlayagain()
-                }.padding()
             
+            Button(action: {
+                self.isShown = false
+                self.onPlayagain()
+            }, label: {
+                Text("Play Again")
+                    .fontWeight(.bold)
+                    .multilineTextAlignment(.center)
+                    .foregroundColor(.white)
+            })
+            .frame(width: 150, height: 50)
+            .background(Color.init(hex:0x5F0F40))
+            .cornerRadius(15)
+            .padding(.top, 20.0)
         }
+        .foregroundColor(.white)
         .padding()
         .frame(width: screenSize.width * 0.8)
-        .background(Color.init(hex: 0xeae2b7))
+        .background(Color.init(hex: 0xFB8B24))
         .clipShape(RoundedRectangle(cornerRadius: 20.0, style: .continuous))
         .offset(y: isShown ? 0 : screenSize.height)
         .animation(.spring())

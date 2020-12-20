@@ -11,19 +11,24 @@ struct GuessInProgressView: View {
     @State var currentTime = Date()
     @ObservedObject var vm: ContentViewModel = .shared
     @State var isGameEnded = false
+    @Environment(\.horizontalSizeClass) var horizontalSizeClass: UserInterfaceSizeClass?
     
     var body: some View {
         ZStack{
             VStack
             {
-                Adview()
-                    .frame(width: UIScreen.main.bounds.width, height: 60)
-                
+                //Adview()
+                  // .frame(width: UIScreen.main.bounds.width, height: 90)
+               // if(horizontalSizeClass == .compact)
+                if (UIScreen.main.bounds.height >= 800)
+                {
+                    Spacer()
+                }
                 if(vm.isSunrise)
                 {
-                    Text("When does the sun rise in:").padding(.top)
+                    Text("When does the sun rise in:").padding(.top, 50.0)
                 } else{
-                    Text("When does the sun set in:").padding(.top)
+                    Text("When does the sun set in:").padding(.top, 50.0)
                 }
                 
                 
@@ -33,12 +38,19 @@ struct GuessInProgressView: View {
                         .font(.largeTitle)
                         .multilineTextAlignment(.center)
                         .padding()
+                }else{
+                    ProgressView()
+                        .frame(width: 50, height: 50)
+                        .scaledToFill()
+                        .padding()
+                        
                 }
                 
                 
                 DatePicker("", selection: $currentTime, displayedComponents: .hourAndMinute)
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
+                    
                 
                 if (vm.loadInProgress == false)
                 {
@@ -46,11 +58,22 @@ struct GuessInProgressView: View {
                         vm.getResult(guessedTime: currentTime)
                         isGameEnded = true
                     }, label: {
-                        Text("Bam")
-                    }).padding(.top, 20.0)
+                        Text("Guess!")
+                            .fontWeight(.bold)
+                            .multilineTextAlignment(.center)
+                            .foregroundColor(.white)
+                    })
+                    
+                    .frame(width: 150, height: 50)
+                    .background(Color.init(hex:0x5F0F40))
+                    .cornerRadius(15)
+                    .padding(.top, 20.0)
+                    
+                    
                 }
                 Spacer()
-            }.background(HalfCircleView())
+            }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
+                .background(HalfCircleView())
             AfterGameView(isShown: $isGameEnded, onPlayagain: vm.getRandomCity)
         }
     }

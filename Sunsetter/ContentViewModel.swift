@@ -26,7 +26,7 @@ class ContentViewModel: ObservableObject {
     var guessedTimeMinuteOffset:Int?
     var currentTime = Date()
     
-    var isSunrise = Bool.random()
+    @Published var isSunrise = Bool.random()
     
     @Published var loadInProgress = true
     
@@ -52,11 +52,14 @@ class ContentViewModel: ObservableObject {
     }
     
     func getRandomCity(){
-        loadInProgress = true
+        DispatchQueue.main.async {
+            self.loadInProgress = true
+        }
         let randomNumber = Int.random(in: 0..<870)
         let url = "http://geodb-free-service.wirefreethought.com/v1/geo/cities?limit=1&offset=\(randomNumber)&minPopulation=1000000&excludedCountryIds=CN"
         let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
             guard let data = data, error == nil else {
+                self.getRandomCity()
                 print("something went wrong")
                 return
             }
@@ -66,6 +69,7 @@ class ContentViewModel: ObservableObject {
                 result = try JSONDecoder().decode((CityResponse.self), from: data)
             }
             catch {
+                self.getRandomCity()
                 print("convert failed \(error.localizedDescription)")
             }
             
@@ -88,6 +92,7 @@ class ContentViewModel: ObservableObject {
         let url = "https://api.sunrise-sunset.org/json?lat=\(latitude!)&lng=\(longitude!)&date=today"
         let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
             guard let data = data, error == nil else {
+                self.getRandomCity()
                 print("something went wrong")
                 return
             }
@@ -97,6 +102,7 @@ class ContentViewModel: ObservableObject {
                 result = try JSONDecoder().decode((sunResponse.self), from: data)
             }
             catch {
+                self.getRandomCity()
                 print("convert failed \(error.localizedDescription)")
             }
             
@@ -116,6 +122,7 @@ class ContentViewModel: ObservableObject {
         let url = "http://api.timezonedb.com/v2.1/get-time-zone?key=3WMNYAOTEDF5&format=json&by=position&lat=\(latitude!)&lng=\(longitude!)"
         let task = URLSession.shared.dataTask(with: URL(string: url)!, completionHandler: { data, response, error in
             guard let data = data, error == nil else {
+                self.getRandomCity()
                 print("something went wrong")
                 return
             }
@@ -125,6 +132,7 @@ class ContentViewModel: ObservableObject {
                 result = try JSONDecoder().decode((timezoneResponse.self), from: data)
             }
             catch {
+                self.getRandomCity()
                 print("convert failed \(error.localizedDescription)")
             }
             
@@ -145,6 +153,7 @@ class ContentViewModel: ObservableObject {
     }
     
     func replaceCurrentCity(){
+        isSunrise = Bool.random()
         currentCity = City(name: cityName, country: cityCountry, latitude: latitude!, longitude: longitude!, sunrise: sunriselocalTime!, sunset: sunsetlocalTime!, gmtOffset: gmtOffset!)
         self.loadInProgress = false
     }
