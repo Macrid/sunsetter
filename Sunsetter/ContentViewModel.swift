@@ -26,13 +26,24 @@ class ContentViewModel: ObservableObject {
     var guessedTimeMinuteOffset:Int?
     var currentTime = Date()
     
+    @Published var points:Int?
+    
     @Published var isSunrise = Bool.random()
     
     @Published var loadInProgress = true
     
     @Published var currentCity:City?
     
-    private init() {}
+    private init() {
+        let defaults = UserDefaults.standard
+        if let key = defaults.object(forKey: "points")
+        {
+            points = key as? Int
+        }else{
+            defaults.setValue(0, forKey: "points")
+            points = 0
+        }
+    }
     
     static let shared = ContentViewModel()
     
@@ -49,6 +60,17 @@ class ContentViewModel: ObservableObject {
             (guessedTimeHourOffset, guessedTimeMinuteOffset) = compareTime(guessedTime: guessedTimeString, actualTime: self.currentCity!.sunset)
         }
         
+        if(guessedTimeHourOffset == 0 && guessedTimeMinuteOffset == 0)
+        {
+            correctGuess()
+        }
+    }
+    
+    func correctGuess()
+    {
+        let defaults = UserDefaults.standard
+        self.points! += 1
+        defaults.setValue(points, forKey: "points")
     }
     
     func getRandomCity(){

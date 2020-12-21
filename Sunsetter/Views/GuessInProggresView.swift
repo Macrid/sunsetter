@@ -58,7 +58,7 @@ struct GuessInProgressView: View {
                         vm.getResult(guessedTime: currentTime)
                         isGameEnded = true
                     }, label: {
-                        Text("Guess!")
+                        Text("GUESS")
                             .fontWeight(.bold)
                             .multilineTextAlignment(.center)
                             .foregroundColor(.white)
@@ -68,6 +68,7 @@ struct GuessInProgressView: View {
                     .background(Color.init(hex:0x5F0F40))
                     .cornerRadius(15)
                     .padding(.top, 20.0)
+                    //.shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: 5, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
                     
                     
                 }

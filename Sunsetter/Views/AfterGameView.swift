@@ -61,7 +61,7 @@ struct AfterGameView: View {
                 self.isShown = false
                 self.onPlayagain()
             }, label: {
-                Text("Play Again")
+                Text("PLAY AGAIN")
                     .fontWeight(.bold)
                     .multilineTextAlignment(.center)
                     .foregroundColor(.white)
@@ -70,6 +70,7 @@ struct AfterGameView: View {
             .background(Color.init(hex:0x5F0F40))
             .cornerRadius(15)
             .padding(.top, 20.0)
+            //.shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
         }
         .foregroundColor(.white)
         .padding()
