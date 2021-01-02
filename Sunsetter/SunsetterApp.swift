@@ -6,12 +6,12 @@
 //
 
 import SwiftUI
-import GoogleMobileAds
+//import GoogleMobileAds
 
 @main
 struct SunsetterApp: App {
     init() {
-        GADMobileAds.sharedInstance().start(completionHandler: nil)
+       // GADMobileAds.sharedInstance().start(completionHandler: nil)
     }
     
     var body: some Scene {
