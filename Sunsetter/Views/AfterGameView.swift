@@ -47,6 +47,8 @@ struct AfterGameView: View {
                     .padding()
                 //Text("The sun sets at \(vm.currentCity?.sunset ?? "") in:")
             }
+            
+            /*
             if(vm.guessedTimeHourOffset == 0 && vm.guessedTimeMinuteOffset == 0)
             {
                 Text("Wow, you got it exactly right!")
@@ -56,6 +58,12 @@ struct AfterGameView: View {
                 Text("Your guess was \(vm.guessedTimeHourOffset ?? 0) hours and \(vm.guessedTimeMinuteOffset ?? 0) minutes off")
                     .multilineTextAlignment(.center)
             }
+            
+            */
+            
+            
+            Text(vm.rightOrWrongText ?? "")
+                .multilineTextAlignment(.center)
             
             Button(action: {
                 self.isShown = false
@@ -71,6 +79,12 @@ struct AfterGameView: View {
             .cornerRadius(15)
             .padding(.top, 20.0)
             //.shadow(color: /*@START_MENU_TOKEN@*/.black/*@END_MENU_TOKEN@*/, radius: /*@START_MENU_TOKEN@*/10/*@END_MENU_TOKEN@*/, x: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/, y: /*@START_MENU_TOKEN@*/0.0/*@END_MENU_TOKEN@*/)
+            Text("Correct guesses: \(vm.points!)")
+                .frame(width: 175, height: 40)
+                .background(Color.white)
+                .foregroundColor(Color.init(hex:0x5F0F40))
+                .cornerRadius(15)
+                .padding()
         }
         .foregroundColor(.white)
         .padding()
@@ -84,10 +98,10 @@ struct AfterGameView: View {
     }
 }
 
-
+/*
 struct AfterGameView_Previews: PreviewProvider {
     static var previews: some View {
         AfterGameView(isShown: .constant(true))
     }
 }
-
+ */

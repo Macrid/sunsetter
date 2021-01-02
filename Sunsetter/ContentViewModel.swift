@@ -26,6 +26,8 @@ class ContentViewModel: ObservableObject {
     var guessedTimeMinuteOffset:Int?
     var currentTime = Date()
     
+    @Published var rightOrWrongText:String?
+    
     @Published var points:Int?
     
     @Published var isSunrise = Bool.random()
@@ -63,6 +65,15 @@ class ContentViewModel: ObservableObject {
         if(guessedTimeHourOffset == 0 && guessedTimeMinuteOffset == 0)
         {
             correctGuess()
+        }
+        getResultString()
+    }
+    
+    func getResultString(){
+        if (guessedTimeHourOffset == 0 && guessedTimeMinuteOffset == 0) {
+            rightOrWrongText = "Wow, you got it exactly right!"
+        }else {
+            rightOrWrongText = "Your guess was \(guessedTimeHourOffset ?? 0) hours and \(guessedTimeMinuteOffset ?? 0) minutes off"
         }
     }
     

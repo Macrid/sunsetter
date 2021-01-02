@@ -17,9 +17,15 @@ struct GuessInProgressView: View {
         ZStack{
             VStack
             {
-                //Adview()
-                  // .frame(width: UIScreen.main.bounds.width, height: 90)
-               // if(horizontalSizeClass == .compact)
+                //                HStack{
+                //                    Text("Correct guesses: \(vm.points!)")
+                //                        .frame(width: 175, height: 40)
+                //                        .background(Color.white)
+                //                        .foregroundColor(Color.init(hex:0x5F0F40))
+                //                        .cornerRadius(15)
+                //                        .padding()
+                //                    Spacer()
+                //                }
                 if (UIScreen.main.bounds.height >= 800)
                 {
                     Spacer()
@@ -43,14 +49,14 @@ struct GuessInProgressView: View {
                         .frame(width: 50, height: 50)
                         .scaledToFill()
                         .padding()
-                        
+                    
                 }
                 
                 
                 DatePicker("", selection: $currentTime, displayedComponents: .hourAndMinute)
                     .datePickerStyle(WheelDatePickerStyle())
                     .labelsHidden()
-                    
+                
                 
                 if (vm.loadInProgress == false)
                 {
@@ -74,7 +80,24 @@ struct GuessInProgressView: View {
                 }
                 Spacer()
             }.frame(width: UIScreen.main.bounds.width, height: UIScreen.main.bounds.height)
-                .background(HalfCircleView())
+            .background(HalfCircleView())
+            
+            /*
+            VStack
+            {
+                HStack{
+                    Text("Correct guesses: \(vm.points!)")
+                        .frame(width: 175, height: 40)
+                        .background(Color.white)
+                        .foregroundColor(Color.init(hex:0x5F0F40))
+                        .cornerRadius(15)
+                        .padding([.top], 30.0)
+                        .padding(.leading, 20.0)
+                    Spacer()
+                }
+                Spacer()
+            }*/
+            
             AfterGameView(isShown: $isGameEnded, onPlayagain: vm.getRandomCity)
         }
     }

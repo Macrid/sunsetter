@@ -19,6 +19,7 @@
 		84741557257E2D6E00863B0A /* ContentViewNew.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84741556257E2D6E00863B0A /* ContentViewNew.swift */; };
 		8474155B257E32FC00863B0A /* BeforeStartView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474155A257E32FC00863B0A /* BeforeStartView.swift */; };
 		8474155F257E331000863B0A /* AfterGameView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 8474155E257E331000863B0A /* AfterGameView.swift */; };
+		848EDC1A25A0F89200C29C34 /* Launch Screen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 848EDC1925A0F89200C29C34 /* Launch Screen.storyboard */; };
 		84EB8E892583BD33001EE0D0 /* Adview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB8E882583BD33001EE0D0 /* Adview.swift */; };
 		84EB8E8D25878B48001EE0D0 /* HalfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB8E8C25878B48001EE0D0 /* HalfCircleView.swift */; };
 		84FEAA02256BEC2500BDCE57 /* timezoneDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */; };
@@ -41,6 +42,7 @@
 		84741556257E2D6E00863B0A /* ContentViewNew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewNew.swift; sourceTree = "<group>"; };
 		8474155A257E32FC00863B0A /* BeforeStartView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BeforeStartView.swift; sourceTree = "<group>"; };
 		8474155E257E331000863B0A /* AfterGameView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AfterGameView.swift; sourceTree = "<group>"; };
+		848EDC1925A0F89200C29C34 /* Launch Screen.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = "Launch Screen.storyboard"; sourceTree = "<group>"; };
 		84EB8E882583BD33001EE0D0 /* Adview.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Adview.swift; sourceTree = "<group>"; };
 		84EB8E8C25878B48001EE0D0 /* HalfCircleView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HalfCircleView.swift; sourceTree = "<group>"; };
 		84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = timezoneDB.swift; sourceTree = "<group>"; };
@@ -80,6 +82,7 @@
 		8436C3F42568380600C2FCCD = {
 			isa = PBXGroup;
 			children = (
+				848EDC1925A0F89200C29C34 /* Launch Screen.storyboard */,
 				8436C3FF2568380600C2FCCD /* Sunsetter */,
 				8436C3FE2568380600C2FCCD /* Products */,
 				0C6AB11CA332583983A2975E /* Pods */,
@@ -202,6 +205,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				848EDC1A25A0F89200C29C34 /* Launch Screen.storyboard in Resources */,
 				8436C4082568380C00C2FCCD /* Preview Assets.xcassets in Resources */,
 				8436C4052568380C00C2FCCD /* Assets.xcassets in Resources */,
 			);
