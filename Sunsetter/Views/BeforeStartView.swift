@@ -38,18 +38,23 @@ struct BeforeStartView: View {
                 .background(Color.init(hex:0x5F0F40))
                 .cornerRadius(15)
                 .padding(.top, 20.0)
-                Text("Correct guesses: \(vm.points!)")
-                    .frame(width: 175, height: 40)
-                    .background(Color.white)
-                    .foregroundColor(Color.init(hex:0x5F0F40))
-                    .cornerRadius(15)
-                    .padding()
+                HStack {
+                    Spacer()
+                    Text("Correct guesses: \(vm.points!)")
+                        .frame(width: 175, height: 40)
+                        .background(Color.white)
+                        .foregroundColor(Color.init(hex:0x5F0F40))
+                        .cornerRadius(15)
+                        .padding()
+                    Spacer()
+                }
                 
                 Spacer()
-            }        .background(Image("citysunset2")
-                                    .resizable()
-                                    .scaledToFill()
-                                    .clipped())
+            }
+            .background(Image("citysunset2")
+                            .resizable()
+                            .scaledToFill()
+                            .clipped())
             .edgesIgnoringSafeArea(.all)
         }
     }
