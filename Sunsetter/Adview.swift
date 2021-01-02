@@ -4,7 +4,7 @@
 //
 //  Created by Erik Persson on 2020-12-11.
 //
-
+/*
 import Foundation
 import SwiftUI
 import GoogleMobileAds
@@ -24,3 +24,4 @@ struct Adview : UIViewRepresentable {
             
     }
 }
+*/

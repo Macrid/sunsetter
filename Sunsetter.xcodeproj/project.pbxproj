@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 51;
+	objectVersion = 50;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -23,7 +23,6 @@
 		84EB8E892583BD33001EE0D0 /* Adview.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB8E882583BD33001EE0D0 /* Adview.swift */; };
 		84EB8E8D25878B48001EE0D0 /* HalfCircleView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84EB8E8C25878B48001EE0D0 /* HalfCircleView.swift */; };
 		84FEAA02256BEC2500BDCE57 /* timezoneDB.swift in Sources */ = {isa = PBXBuildFile; fileRef = 84FEAA01256BEC2500BDCE57 /* timezoneDB.swift */; };
-		BCB6643CC954D44B777D7639 /* Pods_Sunsetter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9569CB85A69E4B0EE93115B7 /* Pods_Sunsetter.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -55,7 +54,6 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				BCB6643CC954D44B777D7639 /* Pods_Sunsetter.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -153,11 +151,9 @@
 			buildConfigurationList = 8436C40C2568380C00C2FCCD /* Build configuration list for PBXNativeTarget "Sunsetter" */;
 			buildPhases = (
 				BE1C0C3BFA5DFF7768E22F35 /* [CP] Check Pods Manifest.lock */,
-				C58C260A1A8830A6710BBBC0 /* [CP] Prepare Artifacts */,
 				8436C3F92568380600C2FCCD /* Sources */,
 				8436C3FA2568380600C2FCCD /* Frameworks */,
 				8436C3FB2568380600C2FCCD /* Resources */,
-				77549C65C4B63711218C9D39 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -214,23 +210,6 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		77549C65C4B63711218C9D39 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-frameworks.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
 		BE1C0C3BFA5DFF7768E22F35 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -251,23 +230,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C58C260A1A8830A6710BBBC0 /* [CP] Prepare Artifacts */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-artifacts-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Prepare Artifacts";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-artifacts-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-Sunsetter/Pods-Sunsetter-artifacts.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 /* End PBXShellScriptBuildPhase section */
