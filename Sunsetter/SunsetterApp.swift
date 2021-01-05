@@ -10,10 +10,6 @@ import SwiftUI
 
 @main
 struct SunsetterApp: App {
-    init() {
-       // GADMobileAds.sharedInstance().start(completionHandler: nil)
-    }
-    
     var body: some Scene {
         WindowGroup {
             BeforeStartView()

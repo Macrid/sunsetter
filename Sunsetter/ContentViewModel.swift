@@ -199,7 +199,7 @@ class ContentViewModel: ObservableObject {
         let date = df.date(from: dateAsString)
         df.dateFormat = "HH:mm:ss"
         
-        let time24 = df.string(from: date!)
+        let time24 = df.string(from: date ?? Date.init())
         print(time24)
         return time24
     }
@@ -285,53 +285,53 @@ class ContentViewModel: ObservableObject {
             }
         }
         /*
-        if(minutesOff < 0)
-        {
-            minutesOff = 60 - minutesOff
-            hoursOff -= 1
-
-        }
-        
-        if(hoursOff >= 12)
-        {
-            hoursOff = 24 - hoursOff
-           /* if(minutesOff >= 30)
-            {
-                minutesOff = 60 - minutesOff
-                hoursOff -= 1
-            }*/
-            
-        }
-        */
+         if(minutesOff < 0)
+         {
+         minutesOff = 60 - minutesOff
+         hoursOff -= 1
+         
+         }
+         
+         if(hoursOff >= 12)
+         {
+         hoursOff = 24 - hoursOff
+         /* if(minutesOff >= 30)
+         {
+         minutesOff = 60 - minutesOff
+         hoursOff -= 1
+         }*/
+         
+         }
+         */
         
         /*
-        let guessedTimeDateComponents = calendar.dateComponents([.hour, .minute], from: guessedTimeDate)
-        let actualTimeDateComponents = calendar.dateComponents([.hour, .minute], from: actualTimeDate)
-        
-        var hoursOff = actualTimeDateComponents.hour! - guessedTimeDateComponents.hour!
-        
-        var minutesOff = actualTimeDateComponents.minute! - guessedTimeDateComponents.minute!
-        
-        if(hoursOff < 0)
-        {
-            hoursOff = hoursOff * -1
-        }
-        if(hoursOff > 12)
-        {
-            hoursOff = 12 - (hoursOff-12)
-        }
-        
-        if(minutesOff < 0)
-        {
-            if(hoursOff > 0)
-            {
-                hoursOff -= 1
-                minutesOff = minutesOff * -1
-            }else{
-                minutesOff = 60 - (minutesOff * -1)
-            }
-        }
-        */
+         let guessedTimeDateComponents = calendar.dateComponents([.hour, .minute], from: guessedTimeDate)
+         let actualTimeDateComponents = calendar.dateComponents([.hour, .minute], from: actualTimeDate)
+         
+         var hoursOff = actualTimeDateComponents.hour! - guessedTimeDateComponents.hour!
+         
+         var minutesOff = actualTimeDateComponents.minute! - guessedTimeDateComponents.minute!
+         
+         if(hoursOff < 0)
+         {
+         hoursOff = hoursOff * -1
+         }
+         if(hoursOff > 12)
+         {
+         hoursOff = 12 - (hoursOff-12)
+         }
+         
+         if(minutesOff < 0)
+         {
+         if(hoursOff > 0)
+         {
+         hoursOff -= 1
+         minutesOff = minutesOff * -1
+         }else{
+         minutesOff = 60 - (minutesOff * -1)
+         }
+         }
+         */
         return (hoursOff, minutesOff)
     }
     
